@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import { useState } from 'react';
+import erauMain from '../assets/erau-main.jpg';
 
 const Home = () => {
     const [section, setSection] = useState<'overview' | 'curriculum' | null>(null);
@@ -10,7 +11,7 @@ const Home = () => {
                 <div className="w-full max-w-6xl">
                     <h2 className="text-4xl font-bold mb-6">ERAU 항공과학 – 고정익 조종</h2>
                     <img
-                        src="../assets/erau-main.jpg"
+                        src={erauMain}
                         alt="항공 이미지"
                         className="w-full max-w-5xl mx-auto mb-6 rounded-lg"
                     />
