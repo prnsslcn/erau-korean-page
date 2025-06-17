@@ -51,7 +51,7 @@ const Home = () => {
 
     return (
         <>
-            <section ref={introRef} id="intro" className="w-full px-6 py-16 text-center opacity-0">
+            <section ref={introRef} id="intro" className="w-full px-6 py-16 text-center opacity-0 font-ibm">
                 <div className="w-full max-w-6xl">
                     <h2 className="text-4xl font-bold mb-6">ERAU 항공과학 – 고정익 조종</h2>
                     <img
@@ -65,9 +65,9 @@ const Home = () => {
                 </div>
             </section>
 
-            <section ref={overviewRef} id="overview" className="w-full px-6 py-12 opacity-0">
+            <section ref={overviewRef} id="overview" className="w-full px-6 py-12 opacity-0 font-ibm">
                 <div className="max-w-4xl mx-auto">
-                    <h3 className="text-2xl font-semibold mb-4">📌 학위 개요</h3>
+                    <h3 className="text-2xl font-bold mb-4">📌 학위 개요</h3>
                     <p className="text-gray-700 leading-relaxed">
                         ERAU 항공과학 학사는 실제 비행과 이론을 통합하여 전문 조종사를 양성하는 과정입니다.
                         세계적으로 인정받는 커리큘럼과 최신 장비를 통해 민간, 군용, 상업 항공 분야로 진출할 수 있는 역량을 갖춥니다.
@@ -75,9 +75,9 @@ const Home = () => {
                 </div>
             </section>
 
-            <section ref={curriculumRef} id="curriculum" className="w-full px-6 py-12 opacity-0">
+            <section ref={curriculumRef} id="curriculum" className="w-full px-6 py-12 opacity-0 font-ibm">
                 <div className="max-w-4xl mx-auto">
-                    <h3 className="text-2xl font-semibold mb-4">📘 커리큘럼</h3>
+                    <h3 className="text-2xl font-bold mb-4">📘 커리큘럼</h3>
                     <ul className="list-disc list-inside text-gray-700 space-y-1">
                         <li>1학기: 항공입문, 기초 물리학, 수학</li>
                         <li>2학기: 기초 비행 이론, 기상학</li>
