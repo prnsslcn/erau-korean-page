@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import IntroSection from '../components/HomeSections/IntroSection';
 import OverviewSection from '../components/HomeSections/OverviewSection';
 import CurriculumSection from '../components/HomeSections/CurriculumSection';
+import DetailSection from '../components/HomeSections/DetailSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +12,7 @@ const Home = () => {
     const introRef = useRef<HTMLElement | null>(null);
     const overviewRef = useRef<HTMLElement | null>(null);
     const curriculumRef = useRef<HTMLElement | null>(null);
+    const detailRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -47,6 +49,17 @@ const Home = () => {
                 }
             }
             );
+
+            gsap.fromTo(detailRef.current, { opacity: 0, y: 50 }, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: detailRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none',
+                }
+            });
         });
 
         return () => ctx.revert();
@@ -57,6 +70,7 @@ const Home = () => {
             <IntroSection sectionRef={introRef as React.RefObject<HTMLElement>} />
             <OverviewSection sectionRef={overviewRef as React.RefObject<HTMLElement>} />
             <CurriculumSection sectionRef={curriculumRef as React.RefObject<HTMLElement>} />
+            <DetailSection sectionRef={detailRef as React.RefObject<HTMLElement>} />
         </>
     );
 };
