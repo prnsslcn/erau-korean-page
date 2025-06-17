@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { RefObject } from 'react';
+import { gsap } from 'gsap';
 
 interface DetailSectionProps {
     sectionRef: RefObject<HTMLElement>;
@@ -7,6 +8,17 @@ interface DetailSectionProps {
 
 const DetailSection = ({ sectionRef }: DetailSectionProps) => {
     const [selectedCampus, setSelectedCampus] = useState<string | null>(null);
+    const detailBoxRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (selectedCampus && detailBoxRef.current) {
+            gsap.fromTo(
+                detailBoxRef.current,
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.8 }
+            );
+        }
+    }, [selectedCampus]);
 
     const campusDetails: Record<string, string> = {
         daytona: '데이토나 캠퍼스는 플로리다에 위치해 있으며, 뛰어난 비행 교육과 실습 시설을 갖추고 있습니다.',
@@ -49,7 +61,10 @@ const DetailSection = ({ sectionRef }: DetailSectionProps) => {
             </div>
 
             {selectedCampus && (
-                <div className="mt-12 max-w-3xl mx-auto text-left bg-gray-100 p-6 rounded-lg shadow">
+                <div
+                    ref={detailBoxRef}
+                    className="mt-12 max-w-3xl mx-auto text-left bg-gray-100 p-6 rounded-lg shadow opacity-0"
+                >
                     <h3 className="text-2xl font-bold text-[#041f45] mb-4">캠퍼스 정보</h3>
                     <p className="text-gray-800">{campusDetails[selectedCampus]}</p>
                 </div>
