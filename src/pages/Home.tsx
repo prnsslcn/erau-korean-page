@@ -8,9 +8,9 @@ import CurriculumSection from '../components/HomeSections/CurriculumSection';
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-    const introRef = useRef(null);
-    const overviewRef = useRef(null);
-    const curriculumRef = useRef(null);
+    const introRef = useRef<HTMLElement | null>(null);
+    const overviewRef = useRef<HTMLElement | null>(null);
+    const curriculumRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -44,8 +44,9 @@ const Home = () => {
                     trigger: curriculumRef.current,
                     start: 'top 80%',
                     toggleActions: 'play none none none',
-                },
-            });
+                }
+            }
+            );
         });
 
         return () => ctx.revert();
@@ -53,9 +54,9 @@ const Home = () => {
 
     return (
         <>
-            <IntroSection sectionRef={introRef} />
-            <OverviewSection sectionRef={overviewRef} />
-            <CurriculumSection sectionRef={curriculumRef} />
+            <IntroSection sectionRef={introRef as React.RefObject<HTMLElement>} />
+            <OverviewSection sectionRef={overviewRef as React.RefObject<HTMLElement>} />
+            <CurriculumSection sectionRef={curriculumRef as React.RefObject<HTMLElement>} />
         </>
     );
 };
