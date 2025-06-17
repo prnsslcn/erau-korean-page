@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import type { RefObject } from 'react';
 import { gsap } from 'gsap';
+import daytonaImg from '../../assets/db.jpg';
+import prescottImg from '../../assets/pr.jpg';
 
 interface DetailSectionProps {
     sectionRef: RefObject<HTMLElement>;
@@ -31,9 +33,9 @@ const DetailSection = ({ sectionRef }: DetailSectionProps) => {
             id="detail"
             className="w-full bg-white py-20 text-center font-ibm px-4 opacity-0"
         >
-            <h2 className="text-4xl font-bold text-[#041f45] mb-6">DETAILS</h2>
+            <h2 className="text-4xl font-bold text-[#041f45] mb-6">상세정보</h2>
             <p className="text-lg text-gray-700 mb-10">
-                This offering is available at the following campuses. Select a campus to learn more.
+                이 혜택은 아래 캠퍼스에서 이용할 수 있습니다. 더 자세히 알아보려면 캠퍼스를 선택하세요.
             </p>
             <div className="flex flex-col md:flex-row gap-8 justify-center items-center max-w-6xl mx-auto">
                 <div
@@ -41,7 +43,7 @@ const DetailSection = ({ sectionRef }: DetailSectionProps) => {
                     className="cursor-pointer hover:opacity-80 transition"
                 >
                     <img
-                        src="https://via.placeholder.com/400x250.png?text=Daytona+Beach"
+                        src={daytonaImg}
                         alt="Daytona Campus"
                         className="rounded-lg shadow-md w-full max-w-md mx-auto mb-4"
                     />
@@ -52,7 +54,7 @@ const DetailSection = ({ sectionRef }: DetailSectionProps) => {
                     className="cursor-pointer hover:opacity-80 transition"
                 >
                     <img
-                        src="https://via.placeholder.com/400x250.png?text=Prescott+AZ"
+                        src={prescottImg}
                         alt="Prescott Campus"
                         className="rounded-lg shadow-md w-full max-w-md mx-auto mb-4"
                     />
